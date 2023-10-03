@@ -21,6 +21,7 @@ def junitSuiteEngineVersion = '1.10.0'
 def restAssuredVersion = '5.3.2'
 def jacksonVersion = '2.15.0'
 def projectLombokVersion = '1.18.30'
+def assertJVersion = '3.24.2'
 
 dependencies {
     //Junit
@@ -39,6 +40,9 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: projectLombokVersion
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: projectLombokVersion
     testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: projectLombokVersion
+    //    AssertJ
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: assertJVersion
+    implementation group: 'org.assertj', name: 'assertj-core', version: assertJVersion
 }
 
 test {
