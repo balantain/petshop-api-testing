@@ -20,6 +20,7 @@ def junitVersion = '5.10.0'
 def junitSuiteEngineVersion = '1.10.0'
 def restAssuredVersion = '5.3.2'
 def jacksonVersion = '2.15.0'
+def projectLombokVersion = '1.18.30'
 
 dependencies {
     //Junit
@@ -33,7 +34,11 @@ dependencies {
     //Jackson
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: jacksonVersion
     implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-properties', version: jacksonVersion
-
+//    Lombok
+    implementation group: 'org.projectlombok', name: 'lombok', version: projectLombokVersion
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: projectLombokVersion
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: projectLombokVersion
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: projectLombokVersion
 }
 
 test {
