@@ -5,13 +5,35 @@ plugins {
 group 'com.epam'
 version '1.0-SNAPSHOT'
 
+compileTestJava {options.encoding = "UTF-8"}
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    options.encoding = "UTF-8"
+}
+
 repositories {
     mavenCentral()
 }
 
+def junitVersion = '5.10.0'
+def junitSuiteEngineVersion = '1.10.0'
+def restAssuredVersion = '5.3.2'
+def jacksonVersion = '2.15.0'
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    //Junit
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-suite-engine', version: junitSuiteEngineVersion
+    //Rest Assured
+    implementation group: 'io.rest-assured', name: 'rest-assured', version: restAssuredVersion
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: restAssuredVersion
+    testImplementation group: 'io.rest-assured', name: 'json-schema-validator', version: restAssuredVersion
+    //Jackson
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: jacksonVersion
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-properties', version: jacksonVersion
+
 }
 
 test {
